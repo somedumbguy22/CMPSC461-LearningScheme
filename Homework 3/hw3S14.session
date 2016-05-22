@@ -1,0 +1,53 @@
+> (funmap (list sqr succ double (lambda (n) (/ n 3))) 10)
+
+(100 11 20 10/3)
+> (funmap '() 'xyz)
+
+()
+> (let ((f (funcompose (list sqr succ double))))
+  (list (f 2) (f 1.5)))
+
+(25 16.0)
+> (zero-Church? zero)
+
+#t
+> (zero-Church? one)
+
+#f
+> (zero-Church? two)
+
+#f
+> (zero-Church? three)
+
+#f
+> (zero-Church? four)
+
+#f
+> (even-Church? zero)
+
+#t
+> (even-Church? one)
+
+#f
+> (even-Church? two)
+
+#t
+> (even-Church? three)
+
+#f
+> (even-Church? four)
+
+#t
+> (slice 10 Factorials)
+
+(1 1 2 6 24 120 720 5040 40320 362880)
+> (slice 12 (multiples-of 7))
+
+(7 14 21 28 35 42 49 56 63 70 77 84)
+> (slice 10 (map-stream sqr Nats))
+
+(0 1 4 9 16 25 36 49 64 81)
+> (slice 10 (map-stream (lambda (n) (+ n 1)) (map-stream sqr Nats)))
+
+(1 2 5 10 17 26 37 50 65 82)
+> 
